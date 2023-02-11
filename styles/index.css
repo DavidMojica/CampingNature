@@ -9,6 +9,8 @@
 body{
     background-color: #fff;
     min-height: 100vh;
+    overflow-x: hidden;
+
 }
 
 #header{
@@ -117,6 +119,7 @@ section #text span{
     background: #094b65;
 }
 .sec h2{
+    margin-top: 8vh;
     font-size: 3.5em;
     color: #fff;
     margin-bottom: 10px;
@@ -124,4 +127,24 @@ section #text span{
 .sec p{
     font-size: 1em;
     color: #fff;
+}
+.sec button{
+    margin: 10vh 4vh 0vh 4vh;
+}
+
+.nav_button{
+    height: 50vh;
+    width: 20%;
+    cursor: pointer;
+    border-radius: 60px;
+    min-width: 200px;
+    
+}
+
+.nav_button div{
+    border: red 1px solid;
+    height: 70%;
+    margin-bottom: 68%;
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
 }
