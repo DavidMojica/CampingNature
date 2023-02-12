@@ -1,5 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');
+/*Fonts----*/
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap'); /*'Poppins'*/
+@import url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');     /*'Rancho'*/
+/*Everywhere----*/
 *{
     margin: 0;
     padding: 0;
@@ -7,13 +9,16 @@
     font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth;
 }
+/*Body----*/
 body{
-    background-color: #fff;
+    background: linear-gradient(-45deg, #8d3a21, wheat, deepskyblue, #ffffff);
+    animation: gradient 30s ease infinite;  /*<-------Duration of the "Day"*/
+    background-size: 400% 400%;
     min-height: 100vh;
     overflow-x: hidden;
 
 }
-
+/*Header----*/
 #header{
     position: absolute;
     top: 0;
@@ -25,7 +30,6 @@ body{
     align-items: center;
     z-index: 100;
 }
-
 #header .logo{
     color: #094b65;
     font-weight: 700;
@@ -48,12 +52,11 @@ body{
     color:#094b65;
     border-radius: 20px;
 }
-
 #header ul li a:hover{
     background-color: #094b65;
     color: #fff;
 }
-
+/*ANIMATED TOP SECTION-------*/
 section{
     position: relative;
     width: 100%;
@@ -61,8 +64,8 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
-
 section::before{
     content: '';
     position: absolute;
@@ -73,7 +76,6 @@ section::before{
     background: linear-gradient(to top, #094b65,transparent);
     z-index: 90;
 }
-
 section img{
     position: absolute;
     top: 0;
@@ -83,7 +85,6 @@ section img{
     object-fit: cover;
     pointer-events: none;
 }
-
 section #text{
     position: absolute;
     color: #094b65;
@@ -113,11 +114,13 @@ section #text span{
     transform: translateY(100px);
 }
 
-/******************************************/
+/*MIDDLE SECTION DIV---*/
 .sec{
+    height: 100vh;
     position: relative;
     padding: 100px;
     background: #094b65;
+    overflow: overlay;
 }
 .sec h2{
     margin-top: 8vh;
@@ -145,17 +148,33 @@ section #text span{
 .nav_button:hover{
     box-shadow: 0 0.1rem 3rem wheat ;
     transition: box-shadow 0.4s ease;
-    animation: mymove 0.5s, bounce 1s;
+    animation: psicodelicHover 0.5s, bounce 1s;
     
 }
-
-
-
 .nav_button h2{
     font-size: 40px;
     margin-top: 20rem;
 }
-
+/*FOOTER------*/
+footer{
+    height: 20vh;
+    min-height: 150px;
+    background:linear-gradient(to right, rgb(120,62,200), rgb(40,76,224),rgb(33, 42, 177), rgb(57,163,248));
+    color: #00304E;
+    font-size: 3vmin;
+}
+#div_f1{
+    margin-left: 4vh;
+    margin-top: 4rem;
+    text-align: center;
+    float: left;
+}
+#div_f2{
+    margin-right: 4vh;
+    margin-top: 4rem;
+    float: right;
+}
+/*KEYFFRAMES AND ANIMATIONS*/
 @keyframes bounce {
 	0%, 20%, 60%, 100% {
 		-webkit-transform: translateY(0);
@@ -172,11 +191,120 @@ section #text span{
 		transform: translateY(-20px);
 	}
 }
-
-@keyframes mymove {
+@keyframes psicodelicHover {
     0%   {top: 0px; left: 0px; background: red;}
     25%  {top: 0px; left: 100px; background: blue;}
     50%  {top: 100px; left: 100px; background: yellow;}
     75%  {top: 100px; left: 0px; background: green;}
     100% {top: 0px; left: 0px; background: red;}
-  }
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+@keyframes flotar{
+    to{
+        margin-top: 15vh;
+    }
+}
+@keyframes animarburbujas{
+    0%{
+        width: 0;
+        height: 0;
+    }
+    3%{
+        width: 30px;
+        height: 27px;
+    }
+    50%{
+        margin-left: 20px;
+        opacity: 0.5;
+    }
+    100%{
+        transform: rotate(90deg);
+       bottom: 100vh;
+       background-color: #094b65;
+    }
+    
+}
+/********************GARBAGE TRASH************************
+Unnecesary or optimized elements.
+------BUBBLES------> Optimized
+>>>There are 67 css lines in Only 10 bubbles made from css. The code has been reduced to 15 lines in JS and you can create the bubbles you want. ../scripts/index_elements.js line 14-27.
+.sec div{
+    background-color: rgb(46, 141, 185);
+    border-radius: 100%;
+    position: absolute;
+    bottom: 0;
+    animation: animarburbujas 4s linear infinite;
+    z-index: 50;
+}
+.sec div:nth-child(1){
+    width: 35px;
+    height: 32px;
+    left: 10px;
+    animation-duration: 4s;
+}
+.sec div:nth-child(2){
+    width: 45px;
+    height: 42px;
+    left: 25%;
+    animation-duration: 9s;
+}
+.sec div:nth-child(3){
+    width: 45px;
+    height: 32px;
+    left: 45%;
+    animation-duration: 6s;
+}
+.sec div:nth-child(4){
+    width: 135px;
+    height: 132px;
+    left: 59%;
+    animation-duration: 14s;
+}
+.sec div:nth-child(5){
+    width: 55px;
+    height: 62px;
+    left: 29%;
+    animation-duration: 12s;
+}
+.sec div:nth-child(6){
+    width: 25px;
+    height: 22px;
+    left: 79%;
+    animation-duration: 5s;
+}
+.sec div:nth-child(7){
+    width: 25px;
+    height: 32px;
+    left: 62%;
+    animation-duration: 8s;
+}
+.sec div:nth-child(8){
+    width: 135px;
+    height: 162px;
+    left: 15%;
+    animation-duration: 15s;
+}
+.sec div:nth-child(9){
+    width: 45px;
+    height: 42px;
+    left: 35%;
+    animation-duration: 9s;
+}
+.sec div:nth-child(10){
+    width: 15px;
+    height: 12px;
+    left: 80%;
+    animation-duration: 6s;
+}
+-------BUBBLES: END-------
+*/
