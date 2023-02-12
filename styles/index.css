@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
 }
 body{
     background-color: #fff;
@@ -128,23 +129,54 @@ section #text span{
     font-size: 1em;
     color: #fff;
 }
-.sec button{
-    margin: 10vh 4vh 0vh 4vh;
-}
-
 .nav_button{
+    margin: 10vh 4vh 0vh 4vh;
     height: 50vh;
     width: 20%;
     cursor: pointer;
+    border-style: none;
     border-radius: 60px;
-    min-width: 200px;
+    min-width: 230px;
+    min-height: 400px;
+    backdrop-filter: blur(8px); 
+    text-transform: capitalize;
+    font-size: 8vh;
+}
+.nav_button:hover{
+    box-shadow: 0 0.1rem 3rem wheat ;
+    transition: box-shadow 0.4s ease;
+    animation: mymove 0.5s, bounce 1s;
     
 }
 
-.nav_button div{
-    border: red 1px solid;
-    height: 70%;
-    margin-bottom: 68%;
-    border-top-left-radius: 60px;
-    border-top-right-radius: 60px;
+
+
+.nav_button h2{
+    font-size: 40px;
+    margin-top: 20rem;
 }
+
+@keyframes bounce {
+	0%, 20%, 60%, 100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+
+	40% {
+		-webkit-transform: translateY(-40px);
+		transform: translateY(-40px);
+	}
+
+	80% {
+		-webkit-transform: translateY(-20px);
+		transform: translateY(-20px);
+	}
+}
+
+@keyframes mymove {
+    0%   {top: 0px; left: 0px; background: red;}
+    25%  {top: 0px; left: 100px; background: blue;}
+    50%  {top: 100px; left: 100px; background: yellow;}
+    75%  {top: 100px; left: 0px; background: green;}
+    100% {top: 0px; left: 0px; background: red;}
+  }

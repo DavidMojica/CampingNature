@@ -1,5 +1,4 @@
 let text = document.getElementById('text');
-let bird1 = document.getElementById('bird1');
 let bird2 = document.getElementById('bird2');
 let btn = document.getElementById('btn');
 let rocks = document.getElementById('rocks');
@@ -19,3 +18,4 @@ window.addEventListener('scroll',function(){
     forest.style.top = value *0.25+'px';
     header.style.top = value*0.5+'px';
 })
+
