@@ -1,0 +1,105 @@
+/*Fonts----*/
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap'); /*'Poppins'*/
+@import url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');     /*'Rancho'*/
+/*Everything---*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    height: 100%;
+}
+/*Body---*/
+body{
+    overflow-x: hidden;
+    background-repeat: no-repeat;
+    transition: 1s;
+    background-size: cover;
+    background-position:center center;
+    justify-content: center;  /*THIS*/
+    align-items: center;      /*THIS*/
+    display: flex;            /*And this: centers everything*/
+}
+
+/*Header----*/
+#header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: sepia(10px); 
+}
+#header .logo{
+    margin-top: 1.2vw;
+    margin-left: 1vw;
+    color: #094b65;
+    font-weight: 700;
+    font-size: 2em;
+    text-decoration: none;
+}
+#header ul{
+    margin-top: 2.5vw;
+    margin-right: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#header ul li{
+    list-style: none;
+    margin-left:20px;
+}
+
+#header ul li a{
+    text-decoration: none;
+    padding: 6px 15px;
+    color:#094b65;
+    border-radius: 20px;
+}
+#header ul li a:hover{
+    background-color: #094b65;
+    color: #fff;
+}
+
+
+#formulary{
+    width: 25vw;
+    height: 60vh;
+    min-width: 300px;
+    min-height: 400px;
+    perspective: 1000px;
+    position: relative;
+   /* border-radius: 200px 100px 40px 40px;
+    clip-path: circle(50% at top left);*/
+}
+#formulary:hover{
+    transform:rotateY(180deg);
+    transform-style:preserve-3d ;
+    transition: all 0.5s linear;
+    position: absolute;
+    transform: rotateY('180');
+}
+
+
+
+/*GARBAGE TRASH------------
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
+    <script>
+        jQuery(document).ready(function( $ ) {
+        $('#header').ripples({
+            resolution: 512,
+            dropRadius: 20,
+            perturbance: 0.01,
+        });
+        });
+    </script>
+
+
+*/
