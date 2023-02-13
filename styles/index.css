@@ -16,7 +16,6 @@ body{
     background-size: 400% 400%;
     min-height: 100vh;
     overflow-x: hidden;
-
 }
 /*Header----*/
 #header{
@@ -64,7 +63,6 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 section::before{
     content: '';
@@ -116,34 +114,32 @@ section #text span{
 
 /*MIDDLE SECTION DIV---*/
 .sec{
+    width: 100%;
     height: 100vh;
     position: relative;
-    padding: 100px;
     background: #094b65;
     overflow: overlay;
 }
-.sec h2{
-    margin-top: 8vh;
-    font-size: 3.5em;
-    color: #fff;
+.sec #h2_sec_title{
+    margin-top: 8vw;
+    margin-left: 5vw;
+    font-size: 6vmin;
+    color: wheat;
     margin-bottom: 10px;
 }
-.sec p{
-    font-size: 1em;
-    color: #fff;
-}
 .nav_button{
-    margin: 10vh 4vh 0vh 4vh;
-    height: 50vh;
-    width: 20%;
+    height: 25vw;
+    width: 18vw;
     cursor: pointer;
     border-style: none;
     border-radius: 60px;
-    min-width: 230px;
-    min-height: 400px;
+    min-width: 13vw;
+    min-height: 10vw;
     backdrop-filter: blur(8px); 
     text-transform: capitalize;
     font-size: 8vh;
+    margin-top: 10vw;
+    margin-left: 5vw;
 }
 .nav_button:hover{
     box-shadow: 0 0.1rem 3rem wheat ;
@@ -152,15 +148,20 @@ section #text span{
     
 }
 .nav_button h2{
-    font-size: 40px;
-    margin-top: 20rem;
+    font-size: 2.5vw;
+    margin-top: 18vw;
+    font-weight: 600;
+    letter-spacing: 0.1vw;
+    color: #fff;
 }
 /*FOOTER------*/
 footer{
     height: 20vh;
     min-height: 150px;
     background:linear-gradient(to right, rgb(120,62,200), rgb(40,76,224),rgb(33, 42, 177), rgb(57,163,248));
-    color: #00304E;
+    background-size: 400% 400%;
+    animation: gradient 4s ease infinite;
+    color: wheat;
     font-size: 3vmin;
 }
 #div_f1{

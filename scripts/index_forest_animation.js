@@ -6,7 +6,7 @@ window.addEventListener('scroll',function(){                      //<---Scroll e
     document.getElementById('bird2').style.top = value*-1.5+'px';
     document.getElementById('bird2').style.left = value*-5+'px';
     document.getElementById('btn').style.marginTop = value * 1.5+'px'; //<-----Generates margin in top side.
-    document.getElementById('rocks').style.top = value * 0.12 + 'px'; //<----Like text comment.
+    document.getElementById('rocks').style.top = value * 0.12 + 'px'; //<----Like text element comment (line 3).
     document.getElementById('forest').style.top = value *0.25+'px';
     document.getElementById('header').style.top = value*0.5+'px';
 })

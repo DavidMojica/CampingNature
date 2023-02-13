@@ -22,7 +22,7 @@ for (let i=0; i<amount_of_bubbles;i++){
     bubble.style.zIndex = RandomPositiveInt(2);
     bubble.style.width = weightHeight+"px";
     bubble.style.height = weightHeight+"px";
-    bubble.style.left = `${RandomPositiveInt(93)}%`; //<----Maxium spawn point of each bubble. Max recomended: 93% for avoid overflow and override disasters :D
+    bubble.style.left = `${RandomPositiveInt(90)}%`; //<----Maxium spawn point of each bubble. Max recomended: 90% for avoid overflow and override disasters :D
     bubble.style.animationDuration = `${getRandomInt(5,20)}s`;
     sec.appendChild(bubble);}
 //------------BUTTONS CONSTRUCTION-----------//
