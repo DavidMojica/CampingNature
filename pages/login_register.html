@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/login_register.css">
+    <link rel="stylesheet" href="../styles/text_inputs.css">
     <title>Camping with nature | Login</title>
 </head>
 <body>
@@ -13,16 +14,42 @@
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="#">Login</a></li>
-            <li><a href="#">Catalog</a></li>
+            <li><a href="catalog.html">Catalog</a></li>
             <li><a href="#">Contact us</a></li>
         </ul>
     </header>
     <div id="formulary">
         <div id="div_login" class="caradelante">
+            <h2>LOGIN</h2>
+            <span>Join to the adventure!</span>
+            <div class="field field_v1">
+                <input id="first-name" class="field__input" placeholder="Username">
+            </div>
+            <div class="field field_v3">
+                <input id="email" class="field__input" placeholder="Password">
+            </div>
+            <input type="button" value="Login">
+            <p>Dont have acount yet?<a onclick=btn1Click()> <br><b>----->Click me :)<-----</b></a></p>
         </div>
         <div id="div_register" class="caradetras">
+            <h2>Register</h2>
+            <span>Start your ride!</span>
+            <div class="field field_v3">
+                <input id="email" class="field__input" placeholder="Your new username">
+            </div>
+            <div class="field field_v3">
+                <input type="password" id="email" class="field__input" placeholder="Your new password">
+            </div>
+            <div class="field field_v3">
+                <input type="password" id="email" class="field__input" placeholder="Confirm password">
+            </div>
+            <input type="button" value="Register! :)">
+            <input type="button" value="register" onclick=btn2Click() >
+
         </div>  
     </div>
 </body>
+
+
 <script src="../scripts/login_register.js"></script>
 </html>

@@ -69,21 +69,43 @@ body{
 
 
 #formulary{
+    display: flex;        
     width: 25vw;
     height: 60vh;
     min-width: 300px;
     min-height: 400px;
     perspective: 1000px;
     position: relative;
+    justify-content: center;  /*THIS*/
+    align-items: center;      /*THIS*/
    /* border-radius: 200px 100px 40px 40px;
     clip-path: circle(50% at top left);*/
 }
-#formulary:hover{
-    transform:rotateY(180deg);
-    transform-style:preserve-3d ;
-    transition: all 0.5s linear;
-    position: absolute;
-    transform: rotateY('180');
+#formulary h2{
+    height: auto;
+    font-family: 'rancho';
+    font-size: 5vw;
+    color: #09653f;
+}
+#formulary span{
+    font-family: 'rancho';
+    font-size: 2vw;
+    color: #09653f;
+}
+#formulary input{
+    height: auto;
+    width: 200px;
+    display: block;
+    margin-top: 10px;
+}
+#div_login{
+    display: block;
+    height: auto;
+}
+#div_register{
+    display: none;
+    transform: scaleX(-1); /*<-----Invertir Horizontalmente*/
+    height: auto;
 }
 
 

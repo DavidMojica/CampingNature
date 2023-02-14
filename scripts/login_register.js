@@ -19,6 +19,37 @@ function modificarBordes(){
     item.style.transition = '2s';
     item.style.borderRadius = `${getRandomInt(mn,mx)}px ${getRandomInt(mn,mx)}px ${getRandomInt(mn,mx)}px ${getRandomInt(mn,mx)}px`;
 }
+
+
+
+function express(cant){
+    let form = document.getElementById('formulary');
+    form.style.transform = `rotateY(${cant})`;
+    form.style.transformStyle = 'preserve-3d';
+    form.style.transition = 'all 0.5s linear';
+    form.style.position = 'absolute';
+}
+function f1(){
+    document.getElementById('div_register').style.display = 'block';
+    document.getElementById('div_login').style.display = 'none';
+}
+function f2(){
+    document.getElementById('div_login').style.display = 'block';
+    document.getElementById('div_register').style.display = 'none';
+}
+
+function btn1Click(){
+    express('180deg');
+    setTimeout(f1,250);  //<----Active the function after x time (in ms).
+}
+
+function btn2Click(){
+    express('0deg');
+    setTimeout(f2,250);
+
+
+}
+
 /* border-radius: 200px 100px 40px 40px;
 
 background: rgba(255, 255, 255, 0.3);
