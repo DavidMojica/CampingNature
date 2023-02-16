@@ -28,6 +28,7 @@ body{
     top: 0;
     left: 0;
     width: 100%;
+    min-height: 50px;
     height: 4vw;
     display: flex;
     justify-content: space-between;
@@ -41,7 +42,7 @@ body{
     margin-left: 1vw;
     color: #094b65;
     font-weight: 700;
-    font-size: 2em;
+    font-size: 2vw;
     text-decoration: none;
 }
 #header ul{
@@ -70,7 +71,7 @@ body{
 
 #formulary{
     display: flex;        
-    width: 25vw;
+    width: 30vw;
     height: 60vh;
     min-width: 300px;
     min-height: 400px;
@@ -80,23 +81,32 @@ body{
     align-items: center;      /*THIS*/
    /* border-radius: 200px 100px 40px 40px;
     clip-path: circle(50% at top left);*/
+    /*background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);*/
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(6px);
+    text-align: center;
 }
 #formulary h2{
     height: auto;
     font-family: 'rancho';
-    font-size: 5vw;
-    color: #09653f;
+    font-size: 4vw;
+    color: #333333;
 }
 #formulary span{
     font-family: 'rancho';
     font-size: 2vw;
-    color: #09653f;
+    color: #333;
 }
 #formulary input{
+    margin: 0 auto;
     height: auto;
-    width: 200px;
+    width: 22vw;
+    min-width: 2px;
     display: block;
     margin-top: 10px;
+}
+#formulary a{
+    cursor: pointer;
 }
 #div_login{
     display: block;
@@ -105,6 +115,10 @@ body{
 #div_register{
     display: none;
     transform: scaleX(-1); /*<-----Invertir Horizontalmente*/
+    height: auto;
+}
+#div_active_sesion{
+    display: none;
     height: auto;
 }
 
