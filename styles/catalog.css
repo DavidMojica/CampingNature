@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap'); /*'Poppins'*/
+@import url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');     /*'Rancho'*/
+/*Everywhere----*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+/*Body----*/
+body{
+    background: linear-gradient(-45deg, #ee7752,#e73c7e,#e73c7e,#23a6d5,#23d5ab);
+    animation: gradient 30s ease infinite;  /*<-------Duration of the "Day"*/
+    background-size: 400% 400%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    
+}
+/*Header----*/
+#header{
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+#header .logo{
+    color: #094b65;
+    font-weight: 700;
+    font-size: 2em;
+    text-decoration: none;
+}
+#header ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#header ul li{
+    list-style: none;
+    margin-left:20px;
+}
+
+#header ul li a{
+    text-decoration: none;
+    padding: 6px 15px;
+    color:#094b65;
+    border-radius: 20px;
+}
+#header ul li a:hover{
+    background-color: #094b65;
+    color: #fff;
+}
+
+section{
+    border: 1px red solid;
+    width: 80em;
+    margin: 0 auto;
+    margin-top: 7rem;
+    display: block;
+    text-align: center;
+}
+
+nav{
+    height: 34px;
+    width: 100%;
+    min-height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); 
+    position: sticky;
+    top: 0px;
+}
+nav ul{
+    margin-top: 2.2vh;
+    display: flex;
+    list-style: none;
+    margin: 0 auto;
+}
+nav ul li{
+    margin: 0 auto;
+    margin-right: 20px;
+    margin: 0 auto;
+    margin-top: 17px;
+}
+nav ul li a{
+    text-decoration: none;
+    padding: 6px 15px;
+    color:#094b65;
+    border-radius: 20px;
+}
+nav ul li a:hover{
+    background-color: #094b65;
+    color: #fff;
+}
+
+
+h4{
+    float: left;
+}
+h4 img{
+    width: 19px;
+}
+
+
+#divCat{
+    display: none;
+    position: fixed;
+    border: #000000 1px solid;
+    width: 300px;
+    top: 62px;
+}
+
+
+.btn_tp1 {
+  width: 16.65vw;
+  display: inline-block;
+  padding: 0.6vh ;
+  border: 0.1em solid #ffffff;
+  margin-top: 1vh;
+  border-radius: 5.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 300;
+  color: #ffffff;
+  text-align: center;
+  transition: all 0.2s;
+  min-width: 210px;
+}
+
+.btn_tp1:hover {
+  color: #000000;
+  background-color: mintcream;
+  cursor: pointer;
+}
+
+.btn_tp2 {
+    width: 12.65vw;
+    display: inline-block;
+    padding: 0.6vh ;
+    border: 0.1em solid #ffffff;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-weight: 300;
+    color: #ffffff;
+    text-align: center;
+    transition: all 0.2s;
+    min-width: 210px;
+  }
+  
+  .btn_tp2:hover {
+    color: #000000;
+    background-color: mintcream;
+    cursor: pointer;
+  }
+
+
+
+@keyframes gradient{
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100%, 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}

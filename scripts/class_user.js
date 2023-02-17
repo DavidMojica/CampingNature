@@ -1,5 +1,4 @@
-var clientList = [];
-
+var clientList = []; 
 class user{
     constructor(username, password){
         this.username = username;

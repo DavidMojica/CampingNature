@@ -4,14 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/text_inputs.css">
+    <link rel="stylesheet" href="../styles/catalog.css">
     <title>Document</title>
   </head>
   <body>
-    <button id="crear">crear</button>
-    <button id="mostrar">mostrar</button>
-    <button id="modificar">modificar</button>
-    <button id="eliminar">eliminar</button>
+    <header id="header">
+      <a href="index.html" class="logo">Camping with nature</a>
+      <ul id="hlist">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="login_register.html">Login</a></li>
+          <li><a href="catalog.html">Catalog</a></li>
+          <li><a href="#">Contact us</a></li>
+      </ul>
+    </header>
+    <section id="section_Cat">
+      <nav id="nav_cat">
+        <ul>
+          <li><a onclick="liClick()">Categories</a></li>
+          <div id="divCat">
+            <a href="#" class="btn_tp2" onclick=showCategories(1)>Carpas</a>
+            <a href="#" class="btn_tp2" onclick=showCategories(2)>Bolsos</a>
+            <a href="#" class="btn_tp2" onclick=showCategories(3)>Bastones</a>
+
+          </div>
+          <li><a href="#">Buy Cart</a></li>
+        </ul>
+      </nav>
+      <h1>Section title</h1>
+      <p>Section description</p>
+    </section>
   </body>
   <script src="../scripts/class_user.js"></script>
+  <script src="../scripts/class_product.js"></script>
 </html>
