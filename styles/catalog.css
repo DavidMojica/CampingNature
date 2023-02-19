@@ -10,9 +10,7 @@
 }
 /*Body----*/
 body{
-    background: linear-gradient(-45deg, #ee7752,#e73c7e,#e73c7e,#23a6d5,#23d5ab);
-    animation: gradient 30s ease infinite;  /*<-------Duration of the "Day"*/
-    background-size: 400% 400%;
+    background: url('../media/catalog_bg.avif');
     min-height: 100vh;
     overflow-x: hidden;
     
@@ -57,12 +55,39 @@ body{
 
 section{
     border: 1px red solid;
-    width: 80em;
+    width: 90em;
     margin: 0 auto;
     margin-top: 7rem;
     display: block;
     text-align: center;
+    backdrop-filter: blur(9px);
 }
+div{
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    margin-left: 4vw;
+    margin-right: 4vw;
+    border-radius: 5em 2em 5em 2em;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+div h2{
+    font-size: 40px;
+}
+div h4{
+    font-size: 20px;
+    margin-bottom: 1vh;
+}
+#outstandings{
+    background: rgb(33, 33, 33);
+}
+#discounts{
+    background: linear-gradient(-45deg, #ee7752,#e73c7e,#e73c7e,#23a6d5,#23d5ab);
+}
+#tops{
+    background: linear-gradient(to left, #A57C01, #B79001,#FFDF01,#EDCB01,#DBB701,#C9A401);
+}
+
 
 nav{
     height: 34px;
