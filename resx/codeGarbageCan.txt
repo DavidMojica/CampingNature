@@ -1,0 +1,47 @@
+//----------The complete object-------------//
+// function crear(){
+//     sessionStorage.setItem("activeUser",JSON.stringify(clienteSesion)); //<---------JSON.stringyfy. Converts the object in a session storage obj.
+//     console.log(sessionStorage.getItem("activeUser"));
+// }
+/*---------Testing----------*/
+
+
+
+//  document.getElementById('crear').addEventListener("click",crear);
+//  document.getElementById('mostrar').addEventListener("click",mostrar);
+//  document.getElementById('modificar').addEventListener("click",modificar);
+//  document.getElementById('eliminar').addEventListener("click",eliminar);
+
+// //------------STRING BY STRIG------//
+
+// function crear(){
+//     sessionStorage.setItem("username",clienteSesion.username);
+//     sessionStorage.setItem("money",clienteSesion.money);
+//     sessionStorage.setItem("buyCart",clienteSesion.buyCart);
+//     sessionStorage.setItem("totalPrice",clienteSesion.totalPrice);
+// }
+
+// function mostrar(){
+//     console.log(sessionStorage.getItem("username"));
+//     console.log(sessionStorage.getItem("money"));
+//     console.log(sessionStorage.getItem("buyCart"));
+//     console.log(sessionStorage.getItem("totalPrice"));
+// }
+// function modificar(){
+//     sessionStorage.setItem("username","davidelpro");
+// }
+// function eliminar(){
+//     sessionStorage.removeItem("username");
+// }
+
+
+
+// function mostrar(){
+
+// }
+// function modificar(){
+//     sessionStorage.setItem("username","davidelpro");
+// }
+// function eliminar(){
+//     sessionStorage.removeItem("username");
+// }

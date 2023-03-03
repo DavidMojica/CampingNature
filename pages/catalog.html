@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="SEODELAPAGINA">
+    <meta name="keywords" content="PALABRAS CLAVE DE LA PAGINA"> 
+    <link rel="icon" href="https://previews.123rf.com/images/samorodinov/samorodinov1703/samorodinov170300006/73299497-plantilla-de-logotipo-de-camping-vector-para-su-dise%C3%B1o-tienda-tur%C3%ADstica-claro-del-bosque-campamento-.jpg">
     <link rel="stylesheet" href="../styles/catalog.css">
-    <title>Document</title>
+    <title>Camping Nature | Catalog</title>
   </head>
   <body>
     <header id="header">
@@ -21,13 +24,9 @@
       <nav id="nav_cat">
         <ul>
           <li><a onclick="liClick()">Categories</a></li>
-          <div id="divCat">
-            <a class="btn_tp2" onclick=showCategories(1)>Carpas</a>
-            <a class="btn_tp2" onclick=showCategories(2)>Bolsos</a>
-            <a class="btn_tp2" onclick=showCategories(3)>Bastones</a>
-          </div>
+          <div id="divCat"></div>
           <li><a onclick="showCatalogMainpage()">Main catalog</a></li>
-          <li><a>Buy Cart</a></li>
+          <li><a onclick='createCartSection()'>Buy Cart</a></li>
         </ul>
       </nav>
     </section>

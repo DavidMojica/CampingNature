@@ -1,0 +1,10 @@
+//--------Fri-3-03-23------//
+-The backend of the catalog is totally fixed.
+-Add products to buycart.
+-Login/Register/leave.
+-Select random products to display them.
+
+--To do in next version--
+-Add more and different products.
+-Contact us page.
+-Buy page.
