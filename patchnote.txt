@@ -1,10 +1,8 @@
-//--------Fri-3-03-23------//
--The backend of the catalog is totally fixed.
--Add products to buycart.
--Login/Register/leave.
--Select random products to display them.
+//--------TUE-3-14-23------//
+-Contact us are finished
+-The formulary will send a message to you email.
 
 --To do in next version--
--Add more and different products.
--Contact us page.
--Buy page.
+-User & admin area
+-User control panel
+-Admin control panel

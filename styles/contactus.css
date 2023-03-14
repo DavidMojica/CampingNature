@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+/*Header----*/
+#header{
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.5);
+
+}
+#header .logo{
+    color: #094b65;
+    font-weight: 700;
+    font-size: 2em;
+    text-decoration: none;
+    z-index: 100;
+}
+#header ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+#header ul li{
+    list-style: none;
+    margin-left:20px;
+}
+#header ul li a{
+    text-decoration: none;
+    padding: 6px 15px;
+    color:#094b65;
+    border-radius: 20px;
+}
+#header ul li a:hover{
+    background-color: #094b65;
+    color: #fff;
+}
+
+
+#section_top{
+    height: 100vh;
+    background-image: url(../media/contactusresources/13.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+}
+#section_top::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(170,125,127,0.7),rgba(116,46,146,0.7),rgba(16,90,126,0.7),transparent);
+    z-index: -1;
+}
+#section_top h1{
+    margin-top: 20vh;
+    color: white;
+    font-size: 5rem;
+    text-align:center;
+}
+.info_div{
+    margin-top: 10%;
+    margin-right: 12%;
+    text-align: center;
+    width: 22vw;
+    float: right;
+    padding: 2%;
+    border-radius: 3em;
+    background: linear-gradient(45deg, rgba(170,125,127,0.7),rgba(116,46,146,0.7),rgba(16,90,126,0.7),transparent);
+    color: white;
+}
+.ainfo{
+    display: flex;
+    justify-content: auto;
+    margin-top: 1%;
+    text-align: justify;
+}
+.div_icon{
+    width: 4vw;
+    height: 4vw;
+}
+.div_icon img{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 1em;
+}
+.div_info{
+    width: 50%;
+    margin-left: 1%;
+}
+
+.contact_div{
+    width: 35vw;
+    height: 35vh;
+    margin-top: 10%;
+    margin-left: 10%;
+    text-align: center;
+    background: linear-gradient(45deg, rgba(170,125,127,0.7),rgba(116,46,146,0.7),rgba(16,90,126,0.7),transparent);
+    display: grid;
+    border-radius: 3em;
+}
+.contact_div h3{
+    font-size: 3vw;
+    color: mintcream;
+}
+.send_message_elements{
+    margin: auto;
+}

@@ -3,7 +3,7 @@ var sec = document.getElementById('sec');      //<-middle DIV
 var image_list = ['../media/HomeResources/login_img.png','../media/HomeResources/register_img.png',
                   '../media/HomeResources/catalog_img.png', '../media/HomeResources/contact_img.png']; 
 var h2text_list = ['Login', 'Register', 'Products', 'Contact Us'];
-var a_href_list = ['login_register.html','login_register.html','catalog.html','#']; //<-When another pages 
+var a_href_list = ['login_register.html','login_register.html','catalog.html','contactus.html']; //<-Go to another pages 
 var amount_of_bubbles = 15; //<--- Amount of bubbles | Very high quantities can cause malfunctions
 //Functions & arrows
 var RandomPositiveInt =(max)=> { return Math.floor(Math.random() * max);}  // Get random int above 0 (0 included) & under max(max not included). If radomInt receive (3) -> Expected output: 0, 1 or 2
