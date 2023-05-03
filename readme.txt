@@ -6,4 +6,6 @@ pages: Archivos HTML (paginas web).
 scripts: Archivos backend. Hasta ahora, solo Javascript.
 styles: Archivos CSS.
 
-Cualquier bug, notifique inmediatamente :).
+Cualquier bug, notifique inmediatamente 
+
+pvtA    

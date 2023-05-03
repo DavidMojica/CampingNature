@@ -2,8 +2,8 @@
 var sec = document.getElementById('sec');      //<-middle DIV
 var image_list = ['../media/HomeResources/login_img.png','../media/HomeResources/register_img.png',
                   '../media/HomeResources/catalog_img.png', '../media/HomeResources/contact_img.png']; 
-var h2text_list = ['Login', 'Register', 'Products', 'Contact Us'];
-var a_href_list = ['login_register.html','login_register.html','catalog.html','contactus.html']; //<-Go to another pages 
+var h2text_list = ['Login', 'Products', 'Contact Us'];
+var a_href_list = ['login_register.php','catalog.html','contactus.html']; //<-Go to another pages 
 var amount_of_bubbles = 15; //<--- Amount of bubbles | Very high quantities can cause malfunctions
 //Functions & arrows
 var RandomPositiveInt =(max)=> { return Math.floor(Math.random() * max);}  // Get random int above 0 (0 included) & under max(max not included). If radomInt receive (3) -> Expected output: 0, 1 or 2
@@ -27,7 +27,7 @@ for (let i=0; i<amount_of_bubbles;i++){
     bubble.style.animationDuration = `${getRandomInt(5,20)}s`;
     sec.appendChild(bubble);}
 //------------BUTTONS CONSTRUCTION-----------//
-for(let i=0; i<4;i++){
+for(let i=0; i<3;i++){
     let btnx = document.createElement('button'); 
     let a = document.createElement('a');
     let h2 = document.createElement('h2');
@@ -39,5 +39,5 @@ for(let i=0; i<4;i++){
     btnx.appendChild(h2);
     h2.appendChild(h2text);
     a.appendChild(btnx);
-    document.getElementById('sec').appendChild(a); }
+    document.getElementById('sec2').appendChild(a); }
 //https://bootswatch.com/ boostrap

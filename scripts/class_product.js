@@ -41,31 +41,58 @@ class cart{
 }
 //Product: A store product that can be purchased by the customer.
 class product{
-    constructor(image,id,name,price,description,type){
-        this.image = image;
+    constructor(id,name,price,description,image,type,outstandig,discounted,discount,top,avaliable_units){
         this.id = id;
         this.name= name;
-        //this.ammount = ammount;
         this.price = price;
         this.description = description;
+        this.image = image;
         this.type = typeList[type];
-        this.outstandig = false;
-        this.discount = 0;
-        this.discounted = false;
-        this.top = false;
-        this.inTheCart = false;
-        this.inTheCartQuantities = 1;
-    }
-    discounter(){               //Activates discount attribute for appear in discounts section.
-       if(!this.discounted){  //OJO
-        this.price = this.price-(Math.ceil(this.price*(this.discount/100))); 
-        this.discounted=true;
-       }
+        this.outstandig = outstandig == 1 ? true : false;
+        this.discounted = discounted == 1 ? true : false;
+        this.discount = this.discounted == true ? discount : null;
+        this.top = top == 1 ? true : false;
+        this.avaliable_units = avaliable_units;
+        // this.inTheCart = false;
+        // this.inTheCartQuantities = 1;
     }
     topper(){                 //Activates top attribute for appear in tops section.
         if(!this.top) this.top = true;
     }
 }
+
+//---------ON LOAD----------//
+onload=function(){ 
+    console.log("Cargando");
+    $.ajax({
+        url: 'catalog.php',
+        type: 'POST',
+        data:{},
+        success: function(response){
+            let data = JSON.parse(response);
+            if(data!=null){
+                data.forEach((loaded_product) =>{
+                    let new_prod = new product(loaded_product.id,loaded_product.prod_name,loaded_product.prod_value,loaded_product.prod_desc,loaded_product.prod_img,loaded_product.prod_type,loaded_product.outstanding,loaded_product.discounted,loaded_product.discount,loaded_product.top,loaded_product.avaliable_units);
+                    if(new_prod.outstandig){
+                        outstandigProductsList.push(new_prod);
+                        console.log(outstandigProductsList);
+                    }
+                    
+                    productList.push(new_prod);
+                    
+                });
+            }
+            else console.log('La consulta resultó NULL');           
+        },
+        error: function(xhr){
+            //alert("estás ejecutandolo desde el lado del cliente, por lo que no se cargarán los datos del servidor.");
+        }
+    });
+    //showCatalogMainpage();
+}
+
+//INSERT INTO `tblproduct`(`prod_name`, `prod_value`, `prod_desc`, `prod_type`, `prod_img`, `outstanding`, `discounted`, `discount`, `top`, `avaliable_units`) VALUES ('Carpa Bugisoft','828000','Carpa azul de bugisoft',1,'https://i.linio.com/p/1cde50daa2453865023d25b0bcdb3b51-product.jpg',false,false,0,false,18)
+
 
 /*-------------GLOBAL VARIABLES------------*/
 var productList = [], outstandigProductsList = [], discountedProductsList = [], topProductsList = [];
@@ -92,14 +119,11 @@ var typeDesc = {'C':"Your products in the cart",
 
 /*----------D.O.M GLOBAL VARIABLES---------*/
 var sec = document.querySelector('section');
-var outstandigs = document.createElement('div');
-var discounts = document.createElement('div');
-var tops = document.createElement('div');
+
+
 var doc = document.getElementById("divCat");
 //INIT D-G-V.
-outstandigs.setAttribute('id','outstandings');
-discounts.setAttribute('id','discounts');
-tops.setAttribute('id','tops');
+
 
 /*------------OBJECT INSTANCE---------- */
 //Carts - In this moment only exists 1 cart but more carts can be added depending of the requeriments.
@@ -111,40 +135,40 @@ Url: string - id: int - Name: string - Price: int - Description: string - Produc
 Important: It works with a minimum of 3 products because in the cycle of choosing featured, discounted and top products, a minimum of 3 DIFFERENT products are expected.
 |ID NOMENCLATURE: Carps: 1000-1999 | BackPacks: 2000-2999 | Shoes 3000-3999*/
 
-//CARPS
-productList.push(new product("../media/CatalogResources/carp_columbus_huron.webp",1000,"Columbus Carp 1",1260000,"Columbus carp 3-5 people.",1)); 
-productList.push(new product("../media/CatalogResources/carp_columbus_huron2.webp",1001,"Columbus Carp 2",1835000,"Columbus carp 6-8 people.",1)); 
-productList.push(new product("../media/CatalogResources/carp_columbus_tunel.webp",1002,"Carp Tunnel",1500000,"Tunnel carp 5-7 people",1)); 
+// //CARPS
+// productList.push(new product("../media/CatalogResources/carp_columbus_huron.webp",1000,"Columbus Carp 1",1260000,"Columbus carp 3-5 people.",1)); 
+// productList.push(new product("../media/CatalogResources/carp_columbus_huron2.webp",1001,"Columbus Carp 2",1835000,"Columbus carp 6-8 people.",1)); 
+// productList.push(new product("../media/CatalogResources/carp_columbus_tunel.webp",1002,"Carp Tunnel",1500000,"Tunnel carp 5-7 people",1)); 
 
-//Backpacks and legpacks
-productList.push(new product("../media/CatalogResources/backpack_macuira.webp",2000,"Macuira 90LTS",470000,"Macuira backpack 90LTS.",2)); 
-productList.push(new product("../media/CatalogResources/backpack_legpack.webp",2001,"Rhino Legpack",80000,"Legpack Rhino very cheap and portable.",2)); 
-productList.push(new product("../media/CatalogResources/backpack_galeras.webp",2002,"Galeras 65LTS",420000,"Galeras backpack 65LTS.",2)); 
+// //Backpacks and legpacks
+// productList.push(new product("../media/CatalogResources/backpack_macuira.webp",2000,"Macuira 90LTS",470000,"Macuira backpack 90LTS.",2)); 
+// productList.push(new product("../media/CatalogResources/backpack_legpack.webp",2001,"Rhino Legpack",80000,"Legpack Rhino very cheap and portable.",2)); 
+// productList.push(new product("../media/CatalogResources/backpack_galeras.webp",2002,"Galeras 65LTS",420000,"Galeras backpack 65LTS.",2)); 
 
-//Shoes
-productList.push(new product("../media/CatalogResources/shoes_adidas.jpg",3000,"Adidas Mount",224000,"Adidas - Made by Peter Anguila",3)); 
-productList.push(new product("../media/CatalogResources/shoes_caterpillar.webp",3001,"Caterpillar Ride",134900,"Caterpillar for men. Designed by warriors for warriors.",3)); 
-productList.push(new product("../media/CatalogResources/shoes_waterproof.jpg",3002,"Coal Watterproof",250000,"Water Shoes for Men Women Quick Dry Barefoot Swimming Diving Surfing Water Sports Pool Beach Walking Yoga",3)); 
+// //Shoes
+// productList.push(new product("../media/CatalogResources/shoes_adidas.jpg",3000,"Adidas Mount",224000,"Adidas - Made by Peter Anguila",3)); 
+// productList.push(new product("../media/CatalogResources/shoes_caterpillar.webp",3001,"Caterpillar Ride",134900,"Caterpillar for men. Designed by warriors for warriors.",3)); 
+// productList.push(new product("../media/CatalogResources/shoes_waterproof.jpg",3002,"Coal Watterproof",250000,"Water Shoes for Men Women Quick Dry Barefoot Swimming Diving Surfing Water Sports Pool Beach Walking Yoga",3)); 
 
-//Fishing Rods
-productList.push(new product("../media/CatalogResources/fishing_lutac.webp",4000,"Lutac Fishing",110000,"Cheap fishing rod lurebait casting.",4)); 
-productList.push(new product("../media/CatalogResources/fishing_amazon.webp",4001,"Adidas Mount",760000,"Wholeshale amazon 20 sets children",4)); 
-productList.push(new product("../media/CatalogResources/fishing_flex.jpg",4002,"Flexible Fishing",574000,"Flexible fishing rod",4)); 
+// //Fishing Rods
+// productList.push(new product("../media/CatalogResources/fishing_lutac.webp",4000,"Lutac Fishing",110000,"Cheap fishing rod lurebait casting.",4)); 
+// productList.push(new product("../media/CatalogResources/fishing_amazon.webp",4001,"Adidas Mount",760000,"Wholeshale amazon 20 sets children",4)); 
+// productList.push(new product("../media/CatalogResources/fishing_flex.jpg",4002,"Flexible Fishing",574000,"Flexible fishing rod",4)); 
 
-//Caps & waterproof equipment
-productList.push(new product("../media/CatalogResources/cap_fishing_cap.jpg",5000,"Fishing cap",76800,"Fishing cap description",5)); 
-productList.push(new product("../media/CatalogResources/cap_waterproof_origin.webp",5001,"Origin Waterproof",154000,"Origin waterproof description",5)); 
-productList.push(new product("../media/CatalogResources/cap_waterproof_quechua.avif",5002,"Quechua Waterproof",200800,"Quechua waterproof description",5)); 
+// //Caps & waterproof equipment
+// productList.push(new product("../media/CatalogResources/cap_fishing_cap.jpg",5000,"Fishing cap",76800,"Fishing cap description",5)); 
+// productList.push(new product("../media/CatalogResources/cap_waterproof_origin.webp",5001,"Origin Waterproof",154000,"Origin waterproof description",5)); 
+// productList.push(new product("../media/CatalogResources/cap_waterproof_quechua.avif",5002,"Quechua Waterproof",200800,"Quechua waterproof description",5)); 
 
-//Survival Kits
-productList.push(new product("../media/CatalogResources/kits_kit1.jpg",6000,"Okama Kit",432000,"Okama's kit provides attaking instruments.",6)); 
-productList.push(new product("../media/CatalogResources/kits_kit2.jpg",6001,"Bowie kit",475000,"Bowie's kit provides you usefull instruments.",6)); 
-productList.push(new product("../media/CatalogResources/kits_kit3.jpg",6002,"Healing kit",315000,"Healing's kit ofers you a very usefull emergency health products.",6)); 
+// //Survival Kits
+// productList.push(new product("../media/CatalogResources/kits_kit1.jpg",6000,"Okama Kit",432000,"Okama's kit provides attaking instruments.",6)); 
+// productList.push(new product("../media/CatalogResources/kits_kit2.jpg",6001,"Bowie kit",475000,"Bowie's kit provides you usefull instruments.",6)); 
+// productList.push(new product("../media/CatalogResources/kits_kit3.jpg",6002,"Healing kit",315000,"Healing's kit ofers you a very usefull emergency health products.",6)); 
 
-//Bikepacks
-productList.push(new product("../media/CatalogResources/bikepacks_columbus1.webp",7001,"Small Bikepack",210000,"Small bikepack 5lts",7)); 
-productList.push(new product("../media/CatalogResources/bikepacks_columbus2.webp",7001,"Big bikepack",412000,"Big bikepack 15lts",7)); 
-productList.push(new product("../media/CatalogResources/bikepacks_columbus3.webp",7002,"Medium Bikepack",320000,"Mediuem bikepack 10lts",7)); 
+// //Bikepacks
+// productList.push(new product("../media/CatalogResources/bikepacks_columbus1.webp",7001,"Small Bikepack",210000,"Small bikepack 5lts",7)); 
+// productList.push(new product("../media/CatalogResources/bikepacks_columbus2.webp",7001,"Big bikepack",412000,"Big bikepack 15lts",7)); 
+// productList.push(new product("../media/CatalogResources/bikepacks_columbus3.webp",7002,"Medium Bikepack",320000,"Mediuem bikepack 10lts",7)); 
 
 
 
@@ -185,87 +209,56 @@ function createCartSection(){   //Gets each product in the cart and graph it in 
 //------D.O.M FUNCTIONS------//
 
 function clear(opc){
-    clearCatalogSection();
-    clearCatalogMain();
+    //clearCatalogSection();
+    //clearCatalogMain();
     createSectionTitle(opc);
 }
-function clearCatalogSection(){
-    try{
-        while(document.querySelector('article')) sec.removeChild(document.querySelector('article'));
-        sec.removeChild(document.querySelector('h1'));
-        sec.removeChild(document.querySelector('p'));
-        sec.removeChild(document.getElementById('totalPrice')); 
-    }catch{}
-}
-function clearCatalogMain(){
-    try{
-        while(document.querySelector('article')) {
-            try{
-                outstandigs.removeChild(document.querySelector('h2'));
-                outstandigs.removeChild(document.querySelector('h4')); 
-                discounts.removeChild(document.querySelector('h2'));
-                discounts.removeChild(document.querySelector('h4')); 
-                tops.removeChild(document.querySelector('h2'));
-                tops.removeChild(document.querySelector('h4')); 
-                outstandigs.style.display = 'none';
-                discounts.style.display = 'none';
-                tops.style.display = 'none';
-            }
-            catch{}
-            outstandigs.removeChild(document.querySelector('article'));
-        }       
-    } catch{}
-    try{
-        sec.removeChild(document.getElementById('outstandings'));
-        sec.removeChild(document.querySelector('h1'));
-        sec.removeChild(document.querySelector('p'));
-    } catch{}
-    try{
-        while(document.querySelector('article')) discounts.removeChild(document.querySelector('article'));
-    } catch{}
+// function clearCatalogSection(){
+//     try{
+//         while(document.querySelector('article')) sec.removeChild(document.querySelector('article'));
+            // sec.removeChild(document.querySelector('h1'));
+//         sec.removeChild(document.querySelector('p'));
+//         sec.removeChild(document.getElementById('totalPrice')); 
+//     }catch{}
+// }
+// function clearCatalogMain(){
+//     try{
+//         while(document.querySelector('article')) {
+//             try{
+//                 outstandigs.removeChild(document.querySelector('h2'));
+//                 outstandigs.removeChild(document.querySelector('h4')); 
+//                 discounts.removeChild(document.querySelector('h2'));
+//                 discounts.removeChild(document.querySelector('h4')); 
+//                 tops.removeChild(document.querySelector('h2'));
+//                 tops.removeChild(document.querySelector('h4')); 
+//                 outstandigs.style.display = 'none';
+//                 discounts.style.display = 'none';
+//                 tops.style.display = 'none';
+//             }
+//             catch{}
+//             outstandigs.removeChild(document.querySelector('article'));
+//         }       
+//     } catch{}
+//     try{
+//         sec.removeChild(document.getElementById('outstandings'));
+//         sec.removeChild(document.querySelector('h1'));
+//         sec.removeChild(document.querySelector('p'));
+//     } catch{}
+//     try{
+//         while(document.querySelector('article')) discounts.removeChild(document.querySelector('article'));
+//     } catch{}
 
-    try{
-        while(document.querySelector('article')) tops.removeChild(document.querySelector('article'));
-    }catch{}
-}
-function actualizeSection(){
-    let h1 = document.getElementById('sectionTitle').innerHTML;
-    if(h1 == typeList['C']) createCartSection();
-    else if(h1 == typeList['0']) showCatalogMainpage();
-    else for(const [idTitle, sectionTitle] of Object.entries(typeList)) if(h1 == sectionTitle) showCategories(idTitle);
-}
-function createSectionTitle(opc){  //Set the title and description of the category, main catalog page and buycart section. Params: (Key of the wanted tittle. typeList dictionary)
-    //TITLE
-    let h1 = document.createElement('h1');
-    let h1text = document.createTextNode(typeList[opc]);
-    //CSS styles.
-    h1.style.display ='inline-block';
-    h1.style.fontSize = '3.8rem';
-    h1.style.textShadow = '1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue';
-    //HTML atributes.
-    h1.setAttribute('id','sectionTitle');
-    //DESCRIPTION
-    let pdesc = document.createElement('p');
-    let pdesctext = document.createTextNode(typeDesc[opc]);
-    //CSS styles.
-    pdesc.style.fontSize = '3rem';
-    pdesc.style.textShadow = '1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue';
-    //Add elements to wanted NODE.
-    h1.appendChild(h1text);
-    pdesc.appendChild(pdesctext);
-    sec.appendChild(h1);
-    sec.appendChild(pdesc);
-    //If the section is the buycart, this will create a price text under description.
-    if(opc=='C'){
-        let pprice = document.createElement('p');
-        let ppricetext = document.createTextNode("Total price: "+productCart.totalPrice);
-        pprice.appendChild(ppricetext);
-        pprice.style.fontSize='20px';
-        pprice.style.textShadow = '1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue';
-        pprice.setAttribute('id','totalPrice');
-        sec.appendChild(pprice);
-    }
-}
+//     try{
+//         while(document.querySelector('article')) tops.removeChild(document.querySelector('article'));
+//     }catch{}
+// }
+// function actualizeSection(){
+//     let h1 = document.getElementById('sectionTitle').innerHTML;
+//     if(h1 == typeList['C']) createCartSection();
+//     else if(h1 == typeList['0']) showCatalogMainpage();
+//     else for(const [idTitle, sectionTitle] of Object.entries(typeList)) if(h1 == sectionTitle) showCategories(idTitle);
+// }
+
 
 function createArticle(pos,container){ //Graphs any article on the display. Is the most important part of the catalog. Params: (Position of the article in products list, container where the article will be graphed.)
     //----Image of the article----//
@@ -397,8 +390,7 @@ function createArticle(pos,container){ //Graphs any article on the display. Is t
             outstandigs.appendChild(art);
             break;
         }
-        case 2:{
-            
+        case 2:{            
             discounts.appendChild(art);
             break;
         }
@@ -408,98 +400,14 @@ function createArticle(pos,container){ //Graphs any article on the display. Is t
         }
     }
 } //end
-function showCatalogMainpage(){ //Load the articles in the catalog main page order by their categories.
-    clear(0);
-    outstandigs.style.display = 'block';
-    discounts.style.display = 'block';
-    tops.style.display = 'block';
-
-        /*OUTSTANDING ELEMENTS. I picked three random products for promote it on outstandigs section*/
-        let subOut = document.createElement('h2');
-        let subOutTxt = document.createTextNode("Outstanding Sales!");
-        subOut.setAttribute('id','secDiscountDesc');
-        subOut.appendChild(subOutTxt);
-        let subSubOut = document.createElement('h4');
-        let subSubOutTxt = document.createTextNode("Enjou you ride with our best seller products!");
-        subSubOut.setAttribute('id','secDiscountLime');
-        subSubOut.style.float = 'inherit';
-        subSubOut.appendChild(subSubOutTxt);
-        outstandigs.appendChild(subOut);
-        outstandigs.appendChild(subSubOut);
-        sec.appendChild(outstandigs);
-    
-        for(let i=0;i<outstandigProductsList.length;i++) for(let j = 0; j<productList.length;j++)if(outstandigProductsList[i].id==productList[j].id) createArticle(j,1);
-
-   
-        let subDisc = document.createElement('h2');
-        let subDiscTxt = document.createTextNode("TODAY SALE DISCOUNT!!");
-        subDisc.appendChild(subDiscTxt);
-        let subSubDesc = document.createElement('h4');
-        let subSubDescTXT = document.createTextNode("Every day we have special offers for you!");
-        subSubDesc.style.float = 'inherit';
-        subSubDesc.appendChild(subSubDescTXT);
-
-        discounts.appendChild(subDisc);
-        discounts.appendChild(subSubDesc);
-        sec.appendChild(discounts);
-        for(let i=0;i<discountedProductsList.length;i++)
-            for(let j =0;j<productList.length;j++)
-                if(discountedProductsList[i].id==productList[j].id) createArticle(j,2);
-
-
-    /*TOP ELEMENTS */
-        let subTops = document.createElement('h2');
-        let subTopsTXT = document.createTextNode("TOP SALES!");
-        subTops.appendChild(subTopsTXT);
-        let subSubTops = document.createElement('h4');
-        let subSubTopsTXT = document.createTextNode("Our best seller products!");
-        subSubTops.style.float = 'inherit';
-        subSubTops.appendChild(subSubTopsTXT);
-        
-        tops.appendChild(subTops);
-        tops.appendChild(subSubTops);
-        sec.appendChild(tops);
-    
-        for(let i=0;i<topProductsList.length;i++)
-            for(let j =0;j<productList.length;j++)
-                if(topProductsList[i].id==productList[j].id) createArticle(j,3);
-}
 function liClick(){  //Categories list hidden or not hidden.
-    if(doc.style.display=="block") doc.style.display="none";  
-    else doc.style.display="block";
+    // if(doc.style.display=="block") doc.style.display="none";  
+    // else doc.style.display="block";
+ 
+    doc.style.display == 'block' ? doc.style.display="none" : doc.style.display="block";
 }
 
-//---------ON LOAD----------//
-onload=function(){ //When the page loads will select some products to give them any category. 
-    let outstandigElements = 6; //Select 3 products (can be repeated) to show it in outstandig category.
-    let discountedElements = 6; //Select 3 products (can NOT be repeated) to show it in discount category and activate the discounted attribute on the product.
-    let toppedElements = 6;     //Select 3 products (can NOT be repeated) to show it in top category and activate the topped attribute on the product.
-    //Outstandings. 
-    for(let i = 0;i<outstandigElements;i++){
-        let outPrd = randomProduct();
-        while(discountedProductsList.includes(outPrd)) outPrd = randomProduct();
-        outstandigProductsList.push(outPrd);
-    } 
-    
-    //Discounteds
-    for(let i = 0;i<discountedElements;i++){
-        let dscPrd = randomProduct();
-        while(discountedProductsList.includes(dscPrd)) dscPrd = randomProduct(); //If detects any repeated product, this will select another product.
-        dscPrd.discount = getRandomInt(10,50);
-        dscPrd.discounter();
-        discountedProductsList.push(dscPrd);
-    } 
 
-    //Tops
-    for(let i = 0;i<toppedElements;i++){
-        let topProd = randomProduct();
-        while(topProductsList.includes(topProd)) topProd=randomProduct(); //If detects any repeated product, this will select another product.
-        topProd.topper();
-        topProductsList.push(topProd);
-    }
-    console.log("outs"+outstandigProductsList.length+" discount"+discountedProductsList.length + "topped" + topProductsList.length)
-    showCatalogMainpage();
-}
 
 //---------CODE OF THE PAGE--------//
 for(let i = 0; i<listCategories.length;i++){

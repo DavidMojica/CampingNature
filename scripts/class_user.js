@@ -18,12 +18,12 @@ class user{
 }
 //Client class: Class for the clients. Every user that registers will be a client.
 class client extends user{
-    constructor(username,password){
+    constructor(username,password,money,totalMoneyEarned){
         super(username,password);
-        this.money = 1500;
-        this.buyCart = ["item1","item2"];
+        this.money = money;
+        this.buyCart = [];
         this.totalPrice = 0;
-        this.totalMoneyEarned = 0;
+        this.totalMoneyEarned = totalMoneyEarned;
     } 
 }
 //Admin class: Admin can modify the products and do 'TIER STAFF' functions over the page in general.
@@ -42,30 +42,74 @@ function val(){ //A few validations to the login.
     let userLog = document.getElementById('user_login').value;
     let passLog = document.getElementById('password_Login').value;
     let notify = undefined;
-    if(String(userLog).length ==0 || String(passLog.length)==0) notify="Algún campo está vacío.";
-    for(let i = 0; i<clientList.length;i++){
-        let anUser = clientList[i];
-        if(anUser.username == userLog && anUser.password == passLog) {
-            openSesion(anUser);
-            clear();
-        }           
+    let ban = false;
+
+    if(String(userLog).length ==0 || String(passLog.length)==0){
+        notify="Algún campo está vacío.";
+        ban = true;
     }
-    notify="Usuario no encontrado";
-    actInfo(notify,"1");
+    else{
+        $.ajax({
+            url: 'optopensesion.php',
+            type: 'POST',
+            data: { 
+                userLog: userLog,
+                passLog: passLog
+             },
+            success: function(response) {
+                let data = JSON.parse(response);
+                console.log(data[0]);
+                if(data[0].usertype == "1"){
+                    var confirmedClient = new client(data[0].username, data[0].pass, data[0].cash, data[0].totalcashearned);
+                    openSesion(confirmedClient);
+                    console.log(data + "JSON");
+                }
+                
+            },
+            error: function(xhr, status, error) {
+              alert(xhr.responseText);
+            }
+        });
+    }
+    if(ban) actInfo(notify,"1");
 }
 function val2(){  //A few validations in the register display.
     let userRegister = document.getElementById('user_Register').value;
     let passRegister = document.getElementById('password_Register').value;
     let confPassRegister = document.getElementById('conf_password_Register').value;
-    let notify = "Registro exitoso.";
-    if(String(userRegister).toLowerCase().length ==0 || String(passRegister.length)==0 || String(confPassRegister).length==0) notify="Algún campo está vacío.";
-    else if(passRegister != confPassRegister) notify="Contraseñas no coinciden";
-    else {
-        clientList.push(new client(userRegister,passRegister));
-        clear();
+    let notify = undefined;
+    let ban = false;
+    if(String(userRegister).toLowerCase().length ==0 || String(passRegister.length)==0 || String(confPassRegister).length==0){
+        notify="Algún campo está vacío.";
+        ban = true;
     }
-    actInfo(notify,"2");
+    else if(passRegister != confPassRegister){
+        notify="Contraseñas no coinciden";
+        ban = true;
+    }
+    else {
+        $.ajax({
+            url: 'optregister.php',
+            type: 'POST',
+            data: { 
+                user_Register: userRegister,
+                password_Register: passRegister,
+                confPassRegister: confPassRegister,
+                usertype: 1,
+                cash: 0,
+                totalCashEarned: 0
+             },
+            success: function(response) {
+                actInfo(response,"2");
+            },
+            error: function(xhr, status, error) {
+              alert(xhr.responseText);
+            }
+        });
+    }
+    if(ban) actInfo(notify,"2");
 }
+
 function actInfo(notify,num){ //Shows a red text if any information is incomplete or unnacepted
     try{     
        document.getElementById(`notify${num}`).removeChild(document.getElementById(`ptext${num}`));
@@ -97,17 +141,22 @@ function clear(){  //Clear the textcamps.
 //LOCAL SESSION ---- The user remains logged into the page even if he changes location or leaves the page.
 onload=function(){
     if(localStorage.getItem('activeUser')!=null){
-        try{f3();}
-        catch{}
+        let lilogin = document.getElementById('lilogin');
         let list = document.getElementById('hlist');
-        let li = document.createElement('li');
-        let a = document.createElement('a');
-        let litext = document.createTextNode('Sign Out');
-        a.addEventListener("click",closeSesion);
-        a.appendChild(litext);
-        li.appendChild(a);
-        li.style.cursor = 'pointer';
-        list.appendChild(li);
+        
+        if(lilogin && list.contains(lilogin)){ //lilogin exists and lilogin is a direct child of list ??
+          
+          
+            list.removeChild(lilogin);
+            let li = document.createElement('li');
+            let a = document.createElement('a');
+            let litext = document.createTextNode('Sign Out');
+            a.addEventListener("click",closeSesion);
+            a.appendChild(litext);
+            li.appendChild(a);
+            li.style.cursor = 'pointer';
+            list.appendChild(li);
+        }
     }
 }
 function openSesion(confirmedUser){  //Open sesion in local storage

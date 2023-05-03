@@ -10,20 +10,24 @@
 }
 /*Body----*/
 body{
-    background: url('../media/CatalogResources/catalog_bg.avif');
     min-height: 100vh;
     overflow-x: hidden;
+    background-color: #7c99a5;
 }
 /*Header----*/
 #header{
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
+    min-height: 50px;
+    height: 4vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    background-color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: sepia(10px); 
 }
 #header .logo{
     color: #094b65;
@@ -58,7 +62,7 @@ section{
     text-align: center;
     backdrop-filter: blur(9px);
 }
-div{
+/* div{
     padding-top: 8vh;
     padding-bottom: 8vh;
     margin-left: 4vw;
@@ -67,14 +71,14 @@ div{
     margin-top: 2vh;
     margin-bottom: 2vh;
     align-items: center;
-}
-div h2{
+} */
+/* div h2{
     font-size: 40px;
 }
 div h4{
     font-size: 20px;
     margin-bottom: 1vh;
-}
+} */
 article p{
     text-size-adjust: 0.4;
 }
@@ -83,25 +87,39 @@ article p{
     background: #000000;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #434343, #222);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #434343, #222); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
 }
 #discounts{
     background: linear-gradient(-45deg, #ee7752,#e73c7e,#e73c7e,#23a6d5,#23d5ab);
 }
-#tops{
+#normalproducts{
     /*background: linear-gradient(to left, #A57C01, #B79001,#FFDF01,#EDCB01,#DBB701,#C9A401);*/
     background: #C6FFDD;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
+
+#categoryproducts{
+    background: #C6FFDD;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #79373a, #5e4d28, #C6FFDD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    display: none;
+}
+
+#div_buycart{
+    display: none;
+    background: #C6FFDD;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4615b9, #5e4d28, #C6FFDD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
 nav{
     height: 34px;
     width: 100%;
     min-height: 60px;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px); 
-    position: sticky;
     top: 0px;
 }
 nav ul{
@@ -125,37 +143,44 @@ nav ul li a{
 nav ul li a:hover{
     background-color: #094b65;
     color: #fff;
+    cursor: pointer;
 }
-h4{
+/* h4{
     float: left;
-}
+} */
 h4 img{
     width: 19px;
 }
 #divCat{
-    display: none;
     position: fixed;
-    width: 300px;
+    width: 20%;
     height: auto;
     top: 60px;
     background: rgba(81, 82, 94, 0.86);
     backdrop-filter: blur(10px);
     margin-top: 0px;
     border-radius: 0em 0em 3em 3em ;
+    margin-left: 7%;
+    padding-bottom: 3dvi;
+    padding-top: 3dvi;
+    display: none;
 }
+
 .btn_tp1 {
-  width: 16.65vw;
-  display: block;
-  padding: 0.6vh ;
-  border: 0.1em solid #ffffff;
-  margin-top: 1vh;
-  border-radius: 5.12em;
-  text-decoration: none;
-  font-weight: 300;
-  color: #ffffff;
-  text-align: center;
-  transition: all 0.2s;
-  min-width: 210px;
+    margin: 0 auto;
+    margin-top: .5dvi;
+    margin-bottom: .5dvi;
+    width: 18%;
+    display: block;
+    padding: 0.6vh ;
+    border: 0.1em solid #ffffff;
+    border-radius: 5.12em;
+    text-decoration: none;
+    font-weight: 300;
+    color: #ffffff;
+    text-align: center;
+    transition: all 0.5s;
+    min-width: 210px;
 }
 .btn_tp1:hover {
   color: #000000;
@@ -163,25 +188,107 @@ h4 img{
   cursor: pointer;
 }
 .btn_tp2 {
-    width: 12.65vw;
     display: inline-block;
     padding: 0.6vh ;
     border: 0.1em solid #fff;
-    border-radius: 0.12em;
+    border-radius: 0.39em;
     box-sizing: border-box;
     text-decoration: none;
     font-weight: 300;
-    color: #fff;
+    color: #dfdfdf;
     text-align: center;
-    transition: all 0.2s;
-    min-width: 210px;
+    transition: all 0.7s;
+    min-width: 96px;
+    margin-top: .2dvi;
+    background-color: #323;
   }
   
   .btn_tp2:hover {
     color: #000000;
-    background-color: mintcream;
+    background-color: whitesmoke;
     cursor: pointer;
   }
+
+.eventual{
+    border-radius: 1em .5em 1em .5em;
+    min-height: 400px;
+    margin-top: 4em;
+    width: 75dvi;
+    overflow: auto;
+    min-width: 75%;
+
+}
+.eventual h2{
+    font-size: 2.4dvi;
+}
+.eventual h4{
+    font-size: 1.5dvi;
+}
+
+.div_tittle_eventual{
+    text-align: center;
+    padding-top: 1dvi;
+}
+.products_eventual{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); /*Ancho*/
+    grid-template-rows: repeat(auto-fill,minmax(10dvi,1fr)); /*Alto*/
+    grid-auto-rows: auto;
+    grid-auto-columns: auto;
+    grid-auto-flow: dense;
+}
+
+/* PRODUCTS */
+.product{
+    max-width: 15dvi;
+    min-height: 20dvi;
+    background-color: #ffffff;
+    border-top-right-radius: 2em;
+    border-bottom-left-radius: 2em;
+    margin: 4% 1% 4% 1%;
+}
+.productType{
+    display: none;
+}
+.productImage{
+    width: 9dvi;
+}
+
+
+.productControllers{
+    bottom: 0px;
+}
+.productDescription{
+    max-height:10dvi;
+    min-height: 10dvi;
+    margin: 0 auto;
+    overflow: auto;
+}
+.backDiv{
+    position: relative;
+    display: none;
+}
+.btnBack{
+    display: block;
+    transform: translateX(80%);
+}
+
+.outstanded{
+    border: 1px solid black;
+    margin: 0 1dvi 0 1dvi;
+}
+.discounted{
+    background: linear-gradient(to right, blue, green, rgb(224, 152, 18), rgb(255, 0, 0));
+    background-size: 400%;
+    background-size: 400% 400%;
+    animation: gradient alternate-reverse 4s infinite;
+    color: #fff;
+    margin: 0 1dvi 0 1dvi;
+}
+
+
+
+
 @keyframes gradient{
     0%{
         background-position: 0% 50%;

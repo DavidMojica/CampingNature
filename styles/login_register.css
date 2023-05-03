@@ -79,9 +79,6 @@ body{
     position: relative;
     justify-content: center;  /*THIS*/
     align-items: center;      /*THIS*/
-   /* border-radius: 200px 100px 40px 40px;
-    clip-path: circle(50% at top left);*/
-    /*background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);*/
     background: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(6px);
     text-align: center;

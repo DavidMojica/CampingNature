@@ -74,5 +74,3 @@ changeBackgroundImage();
 setInterval(changeBackgroundImage,timeToChangeBackground);
 modifyBordersLogin();
 setInterval(modifyBordersLogin,timeToChangeImages);
-
-

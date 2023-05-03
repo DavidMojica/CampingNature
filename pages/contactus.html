@@ -8,59 +8,89 @@
     <link rel="icon" href="https://previews.123rf.com/images/samorodinov/samorodinov1703/samorodinov170300006/73299497-plantilla-de-logotipo-de-camping-vector-para-su-dise%C3%B1o-tienda-tur%C3%ADstica-claro-del-bosque-campamento-.jpg">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/text_inputs.css">
-    <title>Document</title>
+    <!-- email js -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">emailjs.init('Js1QOLa0Zy7MBuzl9')</script>
+    <title>Contact Us | Camping Nature</title>
 </head>
 <body>
     <section id="section_top">
         <header id="header">
             <a href="index.html" class="logo">Camping with nature</a>
             <ul id="hlist">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="login_register.html">Login</a></li>
+                <li><a href="#">Home</a></li>
                 <li><a href="catalog.html">Catalog</a></li>
                 <li><a href="contactus.html">Contact us</a></li>
+                <li id="lilogin"><a href="login_register.php">Login</a></li>
             </ul>
         </header>
-        <h1>Contact Us</h1>
-        <div class="info_div">
-            <article class="ainfo">
-                <div class="div_icon"><img src="../media/contactusresources/location.png" alt=""></div>
-                <div class="div_info">
-                    <h3>Adress</h3>
-                    <p>4671 Suggar Camp Road <br>Otawanna, Minessota <br>55060</p>
-                </div>
+        <div id="top_center">
+            <h1>Contact Us <a href="#mid_page">Here</a></h1>            
+        </div>      
+    </section>
+    <div id="mid_page">
+        <div id="information" class="mid_divs">
+            <h2>Ask how we can help you: </h2>
+            <article class="informationitem">
+                <h3>See our products in action</h3>
+                <p>Here, we have infinity of usefull products for your awesome travels!</p>
             </article>
-            <article class="ainfo">
-                <div class="div_icon"><img src="../media/contactusresources/phone-call.png" alt=""></div>
-                <div class="div_info">
-                    <h3>Phone</h3>
-                    <p>507-273-108-273</p>
-                </div>
+            <article class="informationitem">
+                <h3>Join in our plataform</h3>
+                <p>Start with one-time 10% off cuppon in our outstanding products. <br>
+                Yoy can access into our free support-system.</p>
             </article>
-            <article class="ainfo">
-                <div class="div_icon"><img src="../media/contactusresources/email.png" alt=""></div>
-                <div class="div_info">
-                    <h3>Email</h3>
-                    <p>hello@campingnature.us</p>
-                </div>
+            <article class="informationitem">
+                <h3>Easy-Pay System</h3>
+                <p>Easy buy system, we have a lot of alied banks</p>
+            </article>
+            <article class="informationitem">
+                <h3>Buy everywhere!</h3>
+                <p>We'll send your product to the door of your home.</p>
             </article>
         </div>
 
-        <div class="contact_div">
-            <h3 class="send_message_elements">Send Message</h3>
-            <div class="field field_v1">
-                <input class="field__input" placeholder="Full name" class="send_message_elements">
-            </div>
-            <div class="field field_v1">
-                <input class="field__input" placeholder="Valid Email" class="send_message_elements">
-            </div>
-            <div class="field field_v1">
-                <input class="field__input" placeholder="Type your message" class="send_message_elements">
-            </div>
-            <div id="notify1">
-                <a href="#" class="btn_tp1" class="send_message_elements" onclick=val()>Send</a>
-            </div>
+
+        <div id="divform" class="mid_divs">
+            <h2>Write Us :)</h2>
+            <p>Remember: all the camps are required</p>
+            <form action="" id="form_contactme" method="" onsubmit="return false;">      
+                <div class="form_info_icon">
+                    <input type="text" placeholder="Tu nombre" class="formulario" id="fnombre" name="name">
+                </div>
+                <div class="form_info_icon">
+                    <input type="email" placeholder="Email" class="formulario" id="femail" name="email">
+                </div>
+                <div class="form_info_icon">
+                    <select id="paises" class="formulario" id="fselect" name="country"></select>
+                </div>
+                <div class="form_info_icon">
+                    <input type="text" placeholder="Asunto" class="formulario" id="fasunto" name="subject">
+                </div>
+                <div class="form_info_icon">
+                    <textarea class="formulario" placeholder="Escribe aquí tu mensaje" id="ftextarea" name="message"></textarea>
+                </div>            
+                <div class="form_info_icon">
+                    <input type="submit" value="Enviar" class="formulario" id="fsumbmit">
+                </div>                
+            </form>
         </div>
-    </section>
+    </div>
+    <!-- Foooter -->
+    <footer>
+        <div id="div_f1">
+            <h3>Try our products today!</h3>
+            <p>Camping nature store</p>     
+        </div>
+        <div id="div_f2">
+            <h4>Programador de la pagina:</h4>
+            <p>David Mojica</p>
+        </div>
+    </footer>
+    <link rel="stylesheet" href="../ToastNotify/ToastNotify.css">
+    <script src="../ToastNotify/ToastNotify.js"></script>
+    <script src="../scripts/contact_us.js"></script>
+    <script src="../scripts/class_user.js"></script>
+
 </body>
 </html>
